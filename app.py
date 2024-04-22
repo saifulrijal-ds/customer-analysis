@@ -20,9 +20,9 @@ def load_data():
         "NumWebPurchases", 
         "NumCatalogPurchases", 
         "NumStorePurchases"]].sum(axis=1)
-    df['Recency_Quartile'] = pd.qcut(df['Recency'], 4, labels=list(range(4, 0, -1)))
-    df['Frequency_Quartile'] = pd.qcut(df['NumAllPurchases_Frequency'], 4, labels=list(range(1, 5)))
-    df['Monetary_Quartile'] = pd.qcut(df['MntAllProducts_Monetary'], 4, labels=list(range(1, 5)))
+    df['Recency_Quartile'] = pd.qcut(df['Recency'], 4, labels=list(range(1, 5)))
+    df['Frequency_Quartile'] = pd.qcut(df['NumAllPurchases_Frequency'], 4, labels=list(range(4, 0, -1)))
+    df['Monetary_Quartile'] = pd.qcut(df['MntAllProducts_Monetary'], 4, labels=list(range(4, 0, -1)))
     df['RFM_Score'] = df['Recency_Quartile'].astype(str) + df['Frequency_Quartile'].astype(str) + df['Monetary_Quartile'].astype(str)
     def categorize_rfm(x):
         if x == '111':
