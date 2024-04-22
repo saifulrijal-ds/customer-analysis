@@ -3,6 +3,7 @@ import pandas as pd
 import plotly.express as px
 
 st.title("Customer Analysis")
+st.header("RFM and Quartile Analysis")
 
 @st.cache_data
 def load_data():
@@ -46,6 +47,7 @@ def load_data():
     return df
 
 df = load_data()
+st.subheader("Dataset")
 st.dataframe(df)
 
 product_col_1, product_col_2 = st.columns(2)
